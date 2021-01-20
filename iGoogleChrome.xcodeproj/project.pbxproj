@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -50,6 +50,14 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		5164DEC425B8440700AB37DF /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				51823CC625B8319700A4D789 /* ViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
 		51823CB625B8319700A4D789 = {
 			isa = PBXGroup;
 			children = (
@@ -71,9 +79,9 @@
 		51823CC125B8319700A4D789 /* iGoogleChrome */ = {
 			isa = PBXGroup;
 			children = (
+				5164DEC425B8440700AB37DF /* Controllers */,
 				51823CC225B8319700A4D789 /* AppDelegate.swift */,
 				51823CC425B8319700A4D789 /* SceneDelegate.swift */,
-				51823CC625B8319700A4D789 /* ViewController.swift */,
 				51823CC825B8319700A4D789 /* Main.storyboard */,
 				51823CCB25B8319800A4D789 /* Assets.xcassets */,
 				51823CCD25B8319800A4D789 /* LaunchScreen.storyboard */,
@@ -88,7 +96,6 @@
 				B66A17337016D7F77176AFCD /* Pods-iGoogleChrome.debug.xcconfig */,
 				D86F9D9DB3A41E701EBC9125 /* Pods-iGoogleChrome.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
