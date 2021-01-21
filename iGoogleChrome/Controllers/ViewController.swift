@@ -125,7 +125,7 @@ class ViewController: UIViewController {
                     self.items.append(bleuh)
                 }
             case .failure(let error):
-                print("Request failed with error: \(error)")
+                self.showDialog(title: "API Error", message: "Request failed with error: \(error)")
             }
         }
     }

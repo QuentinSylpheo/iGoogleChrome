@@ -33,6 +33,7 @@ class ChartViewController: UIViewController {
         currencyInLabel.text = currencyIn ?? "---"
         currencyOutLabel.text = currencyOut ?? "---"
         loadChart()
+        loadChangeRate()
         
         // Charts
         lineChartView.rightAxis.enabled = false;
@@ -124,16 +125,62 @@ class ChartViewController: UIViewController {
                 let rates = response["rates"] as! NSDictionary
                 for (key, value) in rates {
                     let r = value as! NSDictionary
-                    let val = Double(r[currencyTo] as! NSNumber) ?? 0.0
+                    let val = Double(truncating: r[currencyTo] as! NSNumber)
                     let d = dateFormat.date(from: key as! String) ?? Date()
                     let rate: Rate = Rate(date: d, value: val)
                     self.listOfRates.append(rate)
                 }
                 self.setData()
             case .failure(let error):
-                print("Request failed with error: \(error)")
+                self.showDialog(title: "API Error", message: "Request failed with error: \(error)")
             }
         }
+    }
+    
+    private func loadChangeRate() {
+        guard let currencyFrom = currencyIn else {
+            return
+        }
+        guard let currencyTo = currencyOut else {
+            return
+        }
+        
+        let parameters: Parameters = [
+            "amount": String(amount ?? 1),
+            "from": currencyFrom,
+            "to": currencyTo
+        ]
+        let url = "https://api.frankfurter.app/latest"
+        
+        AF.request(url, parameters: parameters).responseJSON {
+            response in switch response.result {
+            case .success(let JSON):
+                let response = JSON as! NSDictionary
+                let rates = response["rates"] as! NSDictionary
+                self.rateLabel.text = "\(self.amount ?? 1) \(currencyFrom) = \(rates[currencyTo] as! NSNumber) \(currencyTo)"
+                
+            case .failure(let error):
+                self.showDialog(title: "API Error", message: "Request failed with error: \(error)")
+            }
+        }
+    }
+    
+    func showDialog(title: String, message: String) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { action in
+                                        switch action.style{
+                                        case .default:
+                                            print("default")
+                                            
+                                        case .cancel:
+                                            print("cancel")
+                                            
+                                        case .destructive:
+                                            print("destructive")
+                                            
+                                            
+                                        }}))
+        self.present(alert, animated: true, completion: nil)
     }
 
 }
