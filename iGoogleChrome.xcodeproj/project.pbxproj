@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5174217725B88C2800A9F9A7 /* Currency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5174217625B88C2800A9F9A7 /* Currency.swift */; };
 		51823CC325B8319700A4D789 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51823CC225B8319700A4D789 /* AppDelegate.swift */; };
 		51823CC525B8319700A4D789 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51823CC425B8319700A4D789 /* SceneDelegate.swift */; };
 		51823CC725B8319700A4D789 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51823CC625B8319700A4D789 /* ViewController.swift */; };
@@ -17,6 +18,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5174217625B88C2800A9F9A7 /* Currency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Currency.swift; sourceTree = "<group>"; };
 		51823CBF25B8319700A4D789 /* iGoogleChrome.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iGoogleChrome.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		51823CC225B8319700A4D789 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		51823CC425B8319700A4D789 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -58,6 +60,14 @@
 			path = Controllers;
 			sourceTree = "<group>";
 		};
+		5174217525B88BB400A9F9A7 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				5174217625B88C2800A9F9A7 /* Currency.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		51823CB625B8319700A4D789 = {
 			isa = PBXGroup;
 			children = (
@@ -79,6 +89,7 @@
 		51823CC125B8319700A4D789 /* iGoogleChrome */ = {
 			isa = PBXGroup;
 			children = (
+				5174217525B88BB400A9F9A7 /* Models */,
 				5164DEC425B8440700AB37DF /* Controllers */,
 				51823CC225B8319700A4D789 /* AppDelegate.swift */,
 				51823CC425B8319700A4D789 /* SceneDelegate.swift */,
@@ -213,6 +224,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5174217725B88C2800A9F9A7 /* Currency.swift in Sources */,
 				51823CC725B8319700A4D789 /* ViewController.swift in Sources */,
 				51823CC325B8319700A4D789 /* AppDelegate.swift in Sources */,
 				51823CC525B8319700A4D789 /* SceneDelegate.swift in Sources */,
