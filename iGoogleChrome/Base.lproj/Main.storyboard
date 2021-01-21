@@ -173,9 +173,8 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="t7t-7t-U7g">
-                                <rect key="frame" x="75" y="358" width="240" height="128"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="t7t-7t-U7g" customClass="LineChartView" customModule="Charts">
+                                <rect key="frame" x="0.0" y="358" width="390" height="302"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="to" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1mH-oq-3DG">
@@ -189,12 +188,16 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="vck-5C-ItU" firstAttribute="width" secondItem="xwM-X5-0nx" secondAttribute="width" multiplier="0.5" id="2wE-uh-rdX"/>
+                            <constraint firstItem="dOq-0L-jf9" firstAttribute="trailing" secondItem="t7t-7t-U7g" secondAttribute="trailing" id="41Q-ZI-CuR"/>
                             <constraint firstItem="amS-M7-fxd" firstAttribute="leading" secondItem="dOq-0L-jf9" secondAttribute="leading" constant="55" id="4JU-Lq-PyG"/>
                             <constraint firstItem="D9g-ir-Krj" firstAttribute="top" secondItem="dOq-0L-jf9" secondAttribute="top" constant="34" id="8El-97-PNO"/>
                             <constraint firstItem="vck-5C-ItU" firstAttribute="centerX" secondItem="dOq-0L-jf9" secondAttribute="centerX" id="ATF-sP-e2e"/>
                             <constraint firstItem="1mH-oq-3DG" firstAttribute="firstBaseline" secondItem="amS-M7-fxd" secondAttribute="firstBaseline" id="AWG-p0-jzQ"/>
                             <constraint firstItem="dOq-0L-jf9" firstAttribute="trailing" secondItem="D9g-ir-Krj" secondAttribute="trailing" constant="55" id="IYs-lE-YGt"/>
+                            <constraint firstItem="t7t-7t-U7g" firstAttribute="leading" secondItem="dOq-0L-jf9" secondAttribute="leading" id="P17-0d-0jQ"/>
+                            <constraint firstItem="t7t-7t-U7g" firstAttribute="top" secondItem="vck-5C-ItU" secondAttribute="bottom" constant="192.33333333333331" id="SLn-pm-Fcz"/>
                             <constraint firstItem="vck-5C-ItU" firstAttribute="bottom" secondItem="1mH-oq-3DG" secondAttribute="bottom" constant="60" id="Wgf-LN-KMa"/>
+                            <constraint firstItem="dOq-0L-jf9" firstAttribute="bottom" secondItem="t7t-7t-U7g" secondAttribute="bottom" constant="150" id="aRz-0u-tDP"/>
                             <constraint firstItem="amS-M7-fxd" firstAttribute="top" secondItem="dOq-0L-jf9" secondAttribute="top" constant="34" id="en6-NM-GFO"/>
                             <constraint firstItem="1mH-oq-3DG" firstAttribute="centerX" secondItem="dOq-0L-jf9" secondAttribute="centerX" id="epH-nd-8EV"/>
                         </constraints>
@@ -202,6 +205,7 @@
                     <connections>
                         <outlet property="currencyInLabel" destination="amS-M7-fxd" id="ztq-61-DqL"/>
                         <outlet property="currencyOutLabel" destination="D9g-ir-Krj" id="NRw-cu-wNc"/>
+                        <outlet property="lineChartView" destination="t7t-7t-U7g" id="pHN-pe-hUJ"/>
                         <outlet property="rateLabel" destination="vck-5C-ItU" id="s2I-Mx-OrV"/>
                     </connections>
                 </viewController>
