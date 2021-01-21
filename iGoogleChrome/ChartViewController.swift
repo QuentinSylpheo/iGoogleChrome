@@ -97,15 +97,19 @@ class ChartViewController: UIViewController {
     
     private func loadChart(){
         guard let currencyFrom = currencyIn else {
+            showDialog(title: "Valeur incorrect", message: "La currency FROM est nil")
             return
         }
         guard let currencyTo = currencyOut else {
+            showDialog(title: "Valeur incorrect", message: "La currency TO est nil")
             return
         }
         guard let sureStartDate = startDate else {
+            showDialog(title: "Valeur incorrect", message: "La date de debut est nil")
             return
         }
         guard let sureEndDate = endDate else {
+            showDialog(title: "Valeur incorrect", message: "La date de debut est nil")
             return
         }
         
@@ -139,9 +143,11 @@ class ChartViewController: UIViewController {
     
     private func loadChangeRate() {
         guard let currencyFrom = currencyIn else {
+            showDialog(title: "Valeur incorrect", message: "La currency FROM est nil")
             return
         }
         guard let currencyTo = currencyOut else {
+            showDialog(title: "Valeur incorrect", message: "La currency TO est nil")
             return
         }
         

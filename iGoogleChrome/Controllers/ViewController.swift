@@ -80,6 +80,11 @@ class ViewController: UIViewController {
             return
         }
         
+        if dateStartDatePicker.date > dateEndDatePicker.date {
+            showDialog(title: "Valeur incorrect", message: "La date de début ne peut pas être supérieur à la date de fin")
+            return
+        }
+        
         let storyboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
         let vc = storyboard.instantiateViewController(identifier: "chartVC") as! ChartViewController
         vc.setCurrencyIn(value: currencyIn)
