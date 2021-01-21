@@ -66,7 +66,32 @@ class ViewController: UIViewController {
     }
     
     @IBAction func onClick() {
-        showDialog(title: "Coucou", message: "C'est un test")
+        let currencyIn: String = currencyInTextField.text ?? ""
+        let currencyOut: String = currencyOutTextField.text ?? ""
+        
+        if currencyIn.isEmpty || currencyOut.isEmpty {
+            showDialog(title: "Champs manquant", message: "Il faut remplir les champs FROM et TO")
+            return
+        }
+        
+        let amount: Double = Double(amountTextField.text ?? "1.0") ?? 1.0
+        if amount < 0.1 {
+            showDialog(title: "Valeur incorrect", message: "Le montant doit être au minimum 0.1")
+            return
+        }
+        
+        let storyboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let vc = storyboard.instantiateViewController(identifier: "chartVC") as! ChartViewController
+        vc.setCurrencyIn(value: currencyIn)
+        vc.setCurrencyOut(value: currencyOut)
+        vc.setAmount(value: amount)
+        vc.setStartDate(value: dateStartDatePicker.date)
+        vc.setEndDate(value: dateEndDatePicker.date)
+        guard let navController = navigationController else {
+            showDialog(title: "Erreur", message: "View introuvable")
+            return
+        }
+        navController.pushViewController(vc, animated: true)
     }
     
     func showDialog(title: String, message: String) {
@@ -91,7 +116,6 @@ class ViewController: UIViewController {
         AF.request("https://api.frankfurter.app/currencies").responseJSON {
             response in switch response.result {
             case .success(let JSON):
-                print("Success with JSON: \(JSON)")
                 let response = JSON as! NSDictionary
                 for (key, value) in response {
                     var bleuh:Currency = Currency()
